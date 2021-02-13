@@ -13,7 +13,6 @@ import Github from "../components/icons/Github";
 import Profile from "../components/Profile";
 
 // TODO:
-// 3. Proof read
 // 4. Update LinkedIn
 
 export default function Home({ user, tracks }) {
@@ -81,10 +80,12 @@ export default function Home({ user, tracks }) {
               </p>
               <Paragraph highlight="Me">
                 My name is Sam Öjling and I'm currently looking for a good
-                reason to move back to Stockholm
-                <span className="px-1">🇸🇪</span> from San Francisco
-                <span className="px-1">🇺🇸</span>. I first moved here in 2011 to
-                study and have stayed ever since.
+                reason to move back to Stockholm{" "}
+                <span className="px-1">🇸🇪</span> and I think this role might be
+                it. I'm currently living in San Francisco
+                <span className="px-1">🇺🇸</span>, and have been since 2011.
+                Outside work I enjoy spending time in the nature and playing
+                board games (Gloomhaven and Terraforming Mars most recently).
               </Paragraph>
               <Paragraph highlight="Experience">
                 I'm currently working as a frontend growth developer at{" "}
@@ -93,15 +94,14 @@ export default function Home({ user, tracks }) {
                     Gusto
                   </a>
                 </Link>
-                . I've been with Gusto since 2015 both as a product designer and
-                for the last two years as a frontend developer.
+                . I've been with the company since 2015 first as a product
+                designer and for the last two years as a frontend developer.
               </Paragraph>
               <Paragraph highlight="Tech Stack">
-                Our current tech stack includes React, TypeScript (recently),
-                custom Flux store, GraphQL, React Testing Library, in-house
-                component library, and then the backend is in Ruby on Rails. I
-                do also have experience using Figma and Sketch for creating
-                mockups.
+                Our current tech stack includes React, TypeScript, custom Flux
+                store, GraphQL, React Testing Library, in-house component
+                library, this lives on top of a Ruby on Rails monolith. For
+                design mockups, we use Figma or Sketch.
               </Paragraph>
               <Paragraph highlight="Experimentation">
                 We currently have a custom experiment framework to split our
@@ -112,8 +112,8 @@ export default function Home({ user, tracks }) {
 
               <em>
                 <strong>PS:</strong> I took the opportunity to play around with
-                your API and pulled my topmost 10 songs, this was made with
-                Next.js, Tailwindcss. Here is the{" "}
+                your API and pulled my 10 topmost played songs, this was made
+                with Next.js, Tailwindcss. Here is the{" "}
                 <Link href="https://github.com/scarsam/sam-spotify" passHref>
                   <a target="_blank" rel="noreferrer">
                     Github repo
@@ -126,7 +126,8 @@ export default function Home({ user, tracks }) {
               </div>
             </article>
           </div>
-          {tracks && tracks.map((track) => <Card track={track} />)}
+          {tracks &&
+            tracks.map((track) => <Card key={track.id} track={track} />)}
         </div>
       </section>
     </div>
