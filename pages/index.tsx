@@ -113,7 +113,8 @@ export default function Home({ user, tracks }) {
               <em>
                 <strong>PS:</strong> I took the opportunity to play around with
                 your API and pulled my 10 topmost played songs, this was made
-                with Next.js, Tailwindcss. Here is the{" "}
+                with Next.js, Supabase (save token) and, Tailwindcss. Here is
+                the{" "}
                 <Link href="https://github.com/scarsam/sam-spotify" passHref>
                   <a target="_blank" rel="noreferrer">
                     Github repo
@@ -122,7 +123,7 @@ export default function Home({ user, tracks }) {
                 .
               </em>
               <div className="text-center mt-4">
-                <Profile user={user} />
+                {user && <Profile user={user} />}
               </div>
             </article>
           </div>
@@ -136,27 +137,33 @@ export default function Home({ user, tracks }) {
 
 export async function getStaticProps() {
   let token;
-  let { data } = await supabase
-    .from("token")
-    .select("token")
-    .order("id", { ascending: false })
-    .limit(1);
+  try {
+    let { data } = await supabase
+      .from("token")
+      .select("token")
+      .order("id", { ascending: false })
+      .limit(1);
 
-  token = await tokenFetcher(data[0].token.access_token);
-  if (token.error === "invalid_grant") {
-    token = await refreshToken(data[0].token.refresh_token);
+    token = await tokenFetcher(data[0].token.access_token);
+    if (token.error === "invalid_grant") {
+      token = await refreshToken(data[0].token.refresh_token);
+    }
+    const user = await userFetcher(token);
+    const { items } = await tracksFetcher(token);
+
+    const tracks = items.map((track) => ({
+      id: track.id,
+      name: track.name,
+      album: track.album.name,
+      artist: track.artists.map((artist) => ({ name: artist.name }))[0],
+      image: track.album.images.find((image) => image.width === 300),
+      url: track.external_urls.spotify,
+    }));
+
+    return { props: { user, tracks } };
+  } catch (error) {
+    return { props: { user: null, tracks: [] } };
   }
-  const user = await userFetcher(token);
-  const { items } = await tracksFetcher(token);
 
-  const tracks = items.map((track) => ({
-    id: track.id,
-    name: track.name,
-    album: track.album.name,
-    artist: track.artists.map((artist) => ({ name: artist.name }))[0],
-    image: track.album.images.find((image) => image.width === 300),
-    url: track.external_urls.spotify,
-  }));
-
-  return { props: { user, tracks } };
+  return { props: { user: null, tracks: [] } };
 }
