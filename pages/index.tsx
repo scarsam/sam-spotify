@@ -7,6 +7,13 @@ import refreshToken from "../utils/refreshToken";
 import userFetcher from "../utils/userFetcher";
 import tracksFetcher from "../utils/musicFetcher";
 
+// TODO:
+// 1. Readme
+// 2. Components
+// 3. Proof read
+// 4. Update LinkedIn
+// 5. SEO tags
+
 export default function Home({ user, tracks }) {
   return (
     <div className="text-spotify-black">
@@ -46,7 +53,7 @@ export default function Home({ user, tracks }) {
             </Link>
           </p>
           <p className="pl-2">
-            <Link href="www.linkedin.com/in/samojling" passHref>
+            <Link href="https://www.linkedin.com/in/samojling" passHref>
               <a target="_blank" rel="noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -120,9 +127,16 @@ export default function Home({ user, tracks }) {
 
               <em>
                 <strong>PS:</strong> I took the opportunity to play around with
-                your API and pulled my top most 10 songs.
+                your API and pulled my top most 10 songs, this was made with
+                Next.js, Tailwindcss. Here is the{" "}
+                <Link href="https://github.com/scarsam/sam-spotify" passHref>
+                  <a target="_blank" rel="noreferrer">
+                    Github repo
+                  </a>
+                </Link>
+                .
               </em>
-              <div className="text-center">
+              <div className="text-center mt-4">
                 <div
                   className="relative m-auto"
                   style={{ height: "40px", width: "40px" }}
@@ -149,7 +163,7 @@ export default function Home({ user, tracks }) {
             tracks.map((track) => (
               <div
                 key={track.id}
-                className="flex p-5 pb-3 bg-white rounded-sm transition-shadow hover:shadow-md shadow-sm items-center"
+                className="flex p-4 pb-3 bg-white rounded-sm transition-shadow hover:shadow-md shadow-sm items-center"
               >
                 <div className="pr-5">
                   <Image
