@@ -12,9 +12,6 @@ import LinkedIn from "../components/icons/LinkedIn";
 import Github from "../components/icons/Github";
 import Profile from "../components/Profile";
 
-// TODO:
-// 4. Update LinkedIn
-
 export default function Home({ user, tracks }) {
   return (
     <div className="text-spotify-black">
@@ -24,7 +21,7 @@ export default function Home({ user, tracks }) {
         </title>
         <meta
           name="description"
-          content="Website put together for job application at Spotify (Web Engineer - Experimentation, Data and Insights)"
+          content="Hello, Spotify! I’m Sam Öjling. I’d like to be your new Web Engineer - Experimentation, Data and Insights"
         />
         <meta
           property="og:image"
@@ -59,62 +56,59 @@ export default function Home({ user, tracks }) {
 
       <section className="animated-background p-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-          <div className="row-span-1 col-span-full md:row-span-2 md:col-span-2 lg:row-span-4 lg:col-span-1 bg-blue rounded-sm shadow-sm p-10">
-            <h1 className="text-3xl text-center mb-12">
-              <Link
-                href="https://www.linkedin.com/jobs/view/2307885871/?refId=674511c8-710e-4cb5-8a59-aa7f549e4039"
-                passHref
-              >
-                <a target="_blank" rel="noreferrer">
-                  Web Engineer
-                  <span className="block">
-                    Experimentation, Data and Insights
-                  </span>
-                </a>
-              </Link>
+          <div className="row-span-1 col-span-full md:row-span-2 md:col-span-2 lg:row-span-4 lg:col-span-1 bg-blue rounded-sm shadow-sm p-6">
+            <h1 className="text-2xl text-center my-4">
+              <span className="pr-1">👋</span>{" "}
+              <strong>Hello, Spotify! I’m Sam Öjling.</strong>
             </h1>
 
-            <article className="prose max-w-2xl m-auto">
+            <article className="prose m-auto">
               <p>
-                <span className="pr-1">👋</span> Hello there,
+                I’d like to be your new{" "}
+                <Link
+                  href="https://www.linkedin.com/jobs/view/2307885871/?refId=674511c8-710e-4cb5-8a59-aa7f549e4039"
+                  passHref
+                >
+                  <a target="_blank" rel="noreferrer">
+                    Web Engineer Experimentation, Data and Insights
+                  </a>
+                </Link>
               </p>
               <Paragraph highlight="Me">
-                My name is Sam Öjling and I'm currently looking for a good
-                reason to move back to Stockholm{" "}
-                <span className="px-1">🇸🇪</span> and I think this role might be
-                it. I'm currently living in San Francisco
-                <span className="px-1">🇺🇸</span>, and have been since 2011.
-                Outside work I enjoy spending time in the nature and playing
-                board games (Gloomhaven and Terraforming Mars most recently).
+                I’m a Stockholm<span className="px-1">🇸🇪</span>native who’s been
+                living in San Francisco<span className="px-1">🇺🇸</span>since
+                2011 and this role looks like the perfect opportunity to move
+                back home. When I’m not digging into code, I enjoy spending time
+                in nature or staying home playing board games. (Shout out to any
+                Gloomhaven or Terraforming Mars fans!)
               </Paragraph>
               <Paragraph highlight="Experience">
-                I'm currently working as a frontend growth developer at{" "}
+                I work as a frontend growth developer at an HRIS software
+                company called{" "}
                 <Link href="https://www.gusto.com" passHref>
                   <a target="_blank" rel="noreferrer">
                     Gusto
                   </a>
                 </Link>
-                . I've been with the company since 2015 first as a product
-                designer and for the last two years as a frontend developer.
+                . I joined in 2015 as a product designer, and transitioned to
+                frontend development two years ago.
               </Paragraph>
               <Paragraph highlight="Tech Stack">
-                Our current tech stack includes React, TypeScript, custom Flux
-                store, GraphQL, React Testing Library, in-house component
-                library, this lives on top of a Ruby on Rails monolith. For
-                design mockups, we use Figma or Sketch.
+                React, TypeScript, custom Flux store, GraphQL, React Testing
+                Library, and an in-house component library, all living on top of
+                a Ruby on Rails monolith. For design mockups, I use Figma or
+                Sketch.
               </Paragraph>
               <Paragraph highlight="Experimentation">
                 We currently have a custom experiment framework to split our
-                visitors, companies, and users into different variations. We are
-                looking to migrate over our experiment framework to use
-                Optimiziely.
+                visitors, companies, and users into different variations, but
+                are looking to transition to Optimizely.
               </Paragraph>
 
               <em>
                 <strong>PS:</strong> I took the opportunity to play around with
-                your API and pulled my 10 topmost played songs, this was made
-                with Next.js, Supabase (save token) and, Tailwindcss. Here is
-                the{" "}
+                your API and pulled my 10 top played songs, this was made with
+                Next.js, Supabase (save token) and, Tailwindcss. Here’s the{" "}
                 <Link href="https://github.com/scarsam/sam-spotify" passHref>
                   <a target="_blank" rel="noreferrer">
                     Github repo
@@ -122,7 +116,7 @@ export default function Home({ user, tracks }) {
                 </Link>
                 .
               </em>
-              <div className="text-center mt-4">
+              <div className="text-center">
                 {user && <Profile user={user} />}
               </div>
             </article>

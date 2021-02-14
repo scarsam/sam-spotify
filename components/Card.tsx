@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Card({ track }) {
   return (
     <div className="flex p-4 pb-3 bg-white rounded-sm transition-shadow hover:shadow-md shadow-sm items-center">
-      <div className="pr-5">
+      <div className="pr-5 flex-2">
         <Image
           className="pointer-events-none select-none"
           src={track.image.url}
@@ -13,7 +13,7 @@ export default function Card({ track }) {
           width={150}
         />
       </div>
-      <div>
+      <div className="flex-1">
         <p className="text-2xl">{track.name}</p>
         <p className="text-md">{track.artist.name}</p>
         <p className="text-md">{track.album}</p>

@@ -1,28 +1,15 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Profile({ user }) {
   return (
-    <>
-      <div
-        className="relative m-auto"
-        style={{ height: "40px", width: "40px" }}
-      >
-        <Image
-          className="rounded-full pointer-events-none select-none"
+    <Link href={user.external_urls.spotify} passHref>
+      <a className="inline-block" target="_blank" rel="noreferrer">
+        <img
+          className="rounded-full pointer-events-none select-none m-auto h-10 w-10"
           src={user.images[0].url}
-          alt="Picture of the author"
-          layout="fill"
-          objectFit="contain"
+          alt="Spotify profile"
         />
-      </div>
-      <p>
-        <Link href={user.external_urls.spotify} passHref>
-          <a target="_blank" rel="noreferrer">
-            Sam Öjling
-          </a>
-        </Link>
-      </p>
-    </>
+      </a>
+    </Link>
   );
 }
