@@ -39,7 +39,7 @@ export default function Home({ user, tracks }) {
           <Image
             className="select-none pointer-events-none"
             src="/images/logo/Spotify_Logo_RGB_Black.png"
-            alt="Picture of the author"
+            alt="Spotify logo"
             layout="fill"
             objectFit="contain"
           />
@@ -55,7 +55,7 @@ export default function Home({ user, tracks }) {
       </nav>
 
       <section className="animated-background p-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
           <div className="row-span-1 col-span-full md:row-span-2 md:col-span-2 lg:row-span-4 lg:col-span-1 bg-blue rounded-sm shadow-sm p-6">
             <h1 className="text-2xl text-center my-4">
               <span className="pr-1">👋</span>{" "}
